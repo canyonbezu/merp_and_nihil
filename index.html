@@ -5,38 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Merp &amp; Nihil</title>
 <style>
-  body {
-    margin: 0;
-    font-family: sans-serif;
-    background: #111;
-    color: #eee;
-    text-align: center;
+  body { margin:0; font-family:sans-serif; background:#111; color:#eee; text-align:center; }
+  .banner img { width:100%; height:auto; display:block; }
+  h1 { padding:1.5rem 0 0.5rem; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:12px; padding:16px 16px 32px; }
+  .gallery img { width:100%; height:auto; display:block; border-radius:6px; transition:transform 0.15s ease; }
+  .gallery img:hover { transform:scale(1.02); }
+  footer { padding:1.5rem 0 2rem; font-size:0.85rem; color:#888; }
+  /* Lightbox */
+  #lightbox {
+    display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92);
+    z-index:1000; cursor:pointer;
   }
-  .banner img {
-    width: 100%;
-    height: auto;
-    display: block;
+  #lightbox.active { display:flex; align-items:center; justify-content:center; }
+  #lightbox img { max-width:92vw; max-height:90vh; border-radius:6px; }
+  #lightbox .nav {
+    position:absolute; top:50%; transform:translateY(-50%);
+    font-size:3rem; color:#fff; padding:0 1.5rem; user-select:none;
   }
-  h1 { padding: 1.5rem 0 0.5rem; }
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 12px;
-    padding: 16px 16px 32px;
-  }
-  .gallery img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 6px;
-    transition: transform 0.15s ease;
-  }
-  .gallery img:hover { transform: scale(1.02); }
-footer {
-    padding: 1.5rem 0 2rem;
-    font-size: 0.85rem;
-    color: #888;
-  }
+  #prev { left:0; } #next { right:0; }
+  #close { position:absolute; top:15px; right:25px; font-size:2.5rem; color:#fff; }
 </style>
 </head>
 <body>
@@ -45,140 +33,178 @@ footer {
   </div>
   <h1>Merp Gallery</h1>
   <div class="gallery">
-<a href="images/art001.png" target="_blank"><img src="images/art001.png" alt="" loading="lazy"></a>
-<a href="images/art002.png" target="_blank"><img src="images/art002.png" alt="" loading="lazy"></a>
-<a href="images/art003.png" target="_blank"><img src="images/art003.png" alt="" loading="lazy"></a>
-<a href="images/art004.png" target="_blank"><img src="images/art004.png" alt="" loading="lazy"></a>
-<a href="images/art005.png" target="_blank"><img src="images/art005.png" alt="" loading="lazy"></a>
-<a href="images/art006.png" target="_blank"><img src="images/art006.png" alt="" loading="lazy"></a>
-<a href="images/art007.png" target="_blank"><img src="images/art007.png" alt="" loading="lazy"></a>
-<a href="images/art008.png" target="_blank"><img src="images/art008.png" alt="" loading="lazy"></a>
-<a href="images/art009.png" target="_blank"><img src="images/art009.png" alt="" loading="lazy"></a>
-<a href="images/art010.png" target="_blank"><img src="images/art010.png" alt="" loading="lazy"></a>
-<a href="images/art011.png" target="_blank"><img src="images/art011.png" alt="" loading="lazy"></a>
-<a href="images/art012.png" target="_blank"><img src="images/art012.png" alt="" loading="lazy"></a>
-<a href="images/art013.png" target="_blank"><img src="images/art013.png" alt="" loading="lazy"></a>
-<a href="images/art014.png" target="_blank"><img src="images/art014.png" alt="" loading="lazy"></a>
-<a href="images/art015.png" target="_blank"><img src="images/art015.png" alt="" loading="lazy"></a>
-<a href="images/art016.png" target="_blank"><img src="images/art016.png" alt="" loading="lazy"></a>
-<a href="images/art017.png" target="_blank"><img src="images/art017.png" alt="" loading="lazy"></a>
-<a href="images/art018.png" target="_blank"><img src="images/art018.png" alt="" loading="lazy"></a>
-<a href="images/art019.png" target="_blank"><img src="images/art019.png" alt="" loading="lazy"></a>
-<a href="images/art020.png" target="_blank"><img src="images/art020.png" alt="" loading="lazy"></a>
-<a href="images/art021.png" target="_blank"><img src="images/art021.png" alt="" loading="lazy"></a>
-<a href="images/art022.png" target="_blank"><img src="images/art022.png" alt="" loading="lazy"></a>
-<a href="images/art023.png" target="_blank"><img src="images/art023.png" alt="" loading="lazy"></a>
-<a href="images/art024.png" target="_blank"><img src="images/art024.png" alt="" loading="lazy"></a>
-<a href="images/art025.png" target="_blank"><img src="images/art025.png" alt="" loading="lazy"></a>
-<a href="images/art026.png" target="_blank"><img src="images/art026.png" alt="" loading="lazy"></a>
-<a href="images/art027.png" target="_blank"><img src="images/art027.png" alt="" loading="lazy"></a>
-<a href="images/art028.png" target="_blank"><img src="images/art028.png" alt="" loading="lazy"></a>
-<a href="images/art029.png" target="_blank"><img src="images/art029.png" alt="" loading="lazy"></a>
-<a href="images/art030.png" target="_blank"><img src="images/art030.png" alt="" loading="lazy"></a>
-<a href="images/art031.png" target="_blank"><img src="images/art031.png" alt="" loading="lazy"></a>
-<a href="images/art032.png" target="_blank"><img src="images/art032.png" alt="" loading="lazy"></a>
-<a href="images/art033.png" target="_blank"><img src="images/art033.png" alt="" loading="lazy"></a>
-<a href="images/art034.png" target="_blank"><img src="images/art034.png" alt="" loading="lazy"></a>
-<a href="images/art035.png" target="_blank"><img src="images/art035.png" alt="" loading="lazy"></a>
-<a href="images/art036.png" target="_blank"><img src="images/art036.png" alt="" loading="lazy"></a>
-<a href="images/art037.png" target="_blank"><img src="images/art037.png" alt="" loading="lazy"></a>
-<a href="images/art038.png" target="_blank"><img src="images/art038.png" alt="" loading="lazy"></a>
-<a href="images/art039.png" target="_blank"><img src="images/art039.png" alt="" loading="lazy"></a>
-<a href="images/art040.png" target="_blank"><img src="images/art040.png" alt="" loading="lazy"></a>
-<a href="images/art041.png" target="_blank"><img src="images/art041.png" alt="" loading="lazy"></a>
-<a href="images/art042.png" target="_blank"><img src="images/art042.png" alt="" loading="lazy"></a>
-<a href="images/art043.png" target="_blank"><img src="images/art043.png" alt="" loading="lazy"></a>
-<a href="images/art044.png" target="_blank"><img src="images/art044.png" alt="" loading="lazy"></a>
-<a href="images/art045.png" target="_blank"><img src="images/art045.png" alt="" loading="lazy"></a>
-<a href="images/art046.png" target="_blank"><img src="images/art046.png" alt="" loading="lazy"></a>
-<a href="images/art047.png" target="_blank"><img src="images/art047.png" alt="" loading="lazy"></a>
-<a href="images/art048.jpeg" target="_blank"><img src="images/art048.jpeg" alt="" loading="lazy"></a>
-<a href="images/art049.jpeg" target="_blank"><img src="images/art049.jpeg" alt="" loading="lazy"></a>
-<a href="images/art050.jpeg" target="_blank"><img src="images/art050.jpeg" alt="" loading="lazy"></a>
-<a href="images/art051.jpeg" target="_blank"><img src="images/art051.jpeg" alt="" loading="lazy"></a>
-<a href="images/art052.jpeg" target="_blank"><img src="images/art052.jpeg" alt="" loading="lazy"></a>
-<a href="images/art053.jpeg" target="_blank"><img src="images/art053.jpeg" alt="" loading="lazy"></a>
-<a href="images/art054.jpeg" target="_blank"><img src="images/art054.jpeg" alt="" loading="lazy"></a>
-<a href="images/art055.jpeg" target="_blank"><img src="images/art055.jpeg" alt="" loading="lazy"></a>
-<a href="images/art056.jpeg" target="_blank"><img src="images/art056.jpeg" alt="" loading="lazy"></a>
-<a href="images/art057.jpeg" target="_blank"><img src="images/art057.jpeg" alt="" loading="lazy"></a>
-<a href="images/art058.jpeg" target="_blank"><img src="images/art058.jpeg" alt="" loading="lazy"></a>
-<a href="images/art059.jpeg" target="_blank"><img src="images/art059.jpeg" alt="" loading="lazy"></a>
-<a href="images/art060.jpeg" target="_blank"><img src="images/art060.jpeg" alt="" loading="lazy"></a>
-<a href="images/art061.jpeg" target="_blank"><img src="images/art061.jpeg" alt="" loading="lazy"></a>
-<a href="images/art062.jpeg" target="_blank"><img src="images/art062.jpeg" alt="" loading="lazy"></a>
-<a href="images/art063.jpeg" target="_blank"><img src="images/art063.jpeg" alt="" loading="lazy"></a>
-<a href="images/art064.jpeg" target="_blank"><img src="images/art064.jpeg" alt="" loading="lazy"></a>
-<a href="images/art065.jpeg" target="_blank"><img src="images/art065.jpeg" alt="" loading="lazy"></a>
-<a href="images/art066.jpeg" target="_blank"><img src="images/art066.jpeg" alt="" loading="lazy"></a>
-<a href="images/art067.jpeg" target="_blank"><img src="images/art067.jpeg" alt="" loading="lazy"></a>
-<a href="images/art068.jpeg" target="_blank"><img src="images/art068.jpeg" alt="" loading="lazy"></a>
-<a href="images/art069.jpeg" target="_blank"><img src="images/art069.jpeg" alt="" loading="lazy"></a>
-<a href="images/art070.jpeg" target="_blank"><img src="images/art070.jpeg" alt="" loading="lazy"></a>
-<a href="images/art071.jpeg" target="_blank"><img src="images/art071.jpeg" alt="" loading="lazy"></a>
-<a href="images/art072.jpeg" target="_blank"><img src="images/art072.jpeg" alt="" loading="lazy"></a>
-<a href="images/art073.jpeg" target="_blank"><img src="images/art073.jpeg" alt="" loading="lazy"></a>
-<a href="images/art074.jpeg" target="_blank"><img src="images/art074.jpeg" alt="" loading="lazy"></a>
-<a href="images/art075.jpeg" target="_blank"><img src="images/art075.jpeg" alt="" loading="lazy"></a>
-<a href="images/art076.jpeg" target="_blank"><img src="images/art076.jpeg" alt="" loading="lazy"></a>
-<a href="images/art077.jpeg" target="_blank"><img src="images/art077.jpeg" alt="" loading="lazy"></a>
-<a href="images/art078.jpeg" target="_blank"><img src="images/art078.jpeg" alt="" loading="lazy"></a>
-<a href="images/art079.jpeg" target="_blank"><img src="images/art079.jpeg" alt="" loading="lazy"></a>
-<a href="images/art080.jpeg" target="_blank"><img src="images/art080.jpeg" alt="" loading="lazy"></a>
-<a href="images/art081.jpeg" target="_blank"><img src="images/art081.jpeg" alt="" loading="lazy"></a>
-<a href="images/art082.jpeg" target="_blank"><img src="images/art082.jpeg" alt="" loading="lazy"></a>
-<a href="images/art083.jpeg" target="_blank"><img src="images/art083.jpeg" alt="" loading="lazy"></a>
-<a href="images/art084.jpeg" target="_blank"><img src="images/art084.jpeg" alt="" loading="lazy"></a>
-<a href="images/art085.jpeg" target="_blank"><img src="images/art085.jpeg" alt="" loading="lazy"></a>
-<a href="images/art086.jpeg" target="_blank"><img src="images/art086.jpeg" alt="" loading="lazy"></a>
-<a href="images/art087.jpeg" target="_blank"><img src="images/art087.jpeg" alt="" loading="lazy"></a>
-<a href="images/art088.jpeg" target="_blank"><img src="images/art088.jpeg" alt="" loading="lazy"></a>
-<a href="images/art089.jpeg" target="_blank"><img src="images/art089.jpeg" alt="" loading="lazy"></a>
-<a href="images/art090.jpeg" target="_blank"><img src="images/art090.jpeg" alt="" loading="lazy"></a>
-<a href="images/art091.jpeg" target="_blank"><img src="images/art091.jpeg" alt="" loading="lazy"></a>
-<a href="images/art092.jpeg" target="_blank"><img src="images/art092.jpeg" alt="" loading="lazy"></a>
-<a href="images/art093.jpeg" target="_blank"><img src="images/art093.jpeg" alt="" loading="lazy"></a>
-<a href="images/art094.jpeg" target="_blank"><img src="images/art094.jpeg" alt="" loading="lazy"></a>
-<a href="images/art095.jpeg" target="_blank"><img src="images/art095.jpeg" alt="" loading="lazy"></a>
-<a href="images/art096.jpeg" target="_blank"><img src="images/art096.jpeg" alt="" loading="lazy"></a>
-<a href="images/art097.jpeg" target="_blank"><img src="images/art097.jpeg" alt="" loading="lazy"></a>
-<a href="images/art098.jpeg" target="_blank"><img src="images/art098.jpeg" alt="" loading="lazy"></a>
-<a href="images/art099.jpeg" target="_blank"><img src="images/art099.jpeg" alt="" loading="lazy"></a>
-<a href="images/art100.jpeg" target="_blank"><img src="images/art100.jpeg" alt="" loading="lazy"></a>
-<a href="images/art101.jpeg" target="_blank"><img src="images/art101.jpeg" alt="" loading="lazy"></a>
-<a href="images/art102.jpeg" target="_blank"><img src="images/art102.jpeg" alt="" loading="lazy"></a>
-<a href="images/art103.jpeg" target="_blank"><img src="images/art103.jpeg" alt="" loading="lazy"></a>
-<a href="images/art104.jpeg" target="_blank"><img src="images/art104.jpeg" alt="" loading="lazy"></a>
-<a href="images/art105.jpeg" target="_blank"><img src="images/art105.jpeg" alt="" loading="lazy"></a>
-<a href="images/art106.jpeg" target="_blank"><img src="images/art106.jpeg" alt="" loading="lazy"></a>
-<a href="images/art107.jpeg" target="_blank"><img src="images/art107.jpeg" alt="" loading="lazy"></a>
-<a href="images/art108.jpeg" target="_blank"><img src="images/art108.jpeg" alt="" loading="lazy"></a>
-<a href="images/art109.jpeg" target="_blank"><img src="images/art109.jpeg" alt="" loading="lazy"></a>
-<a href="images/art110.jpeg" target="_blank"><img src="images/art110.jpeg" alt="" loading="lazy"></a>
-<a href="images/art111.jpeg" target="_blank"><img src="images/art111.jpeg" alt="" loading="lazy"></a>
-<a href="images/art112.jpeg" target="_blank"><img src="images/art112.jpeg" alt="" loading="lazy"></a>
-<a href="images/art113.jpeg" target="_blank"><img src="images/art113.jpeg" alt="" loading="lazy"></a>
-<a href="images/art114.jpeg" target="_blank"><img src="images/art114.jpeg" alt="" loading="lazy"></a>
-<a href="images/art115.jpeg" target="_blank"><img src="images/art115.jpeg" alt="" loading="lazy"></a>
-<a href="images/art116.jpeg" target="_blank"><img src="images/art116.jpeg" alt="" loading="lazy"></a>
-<a href="images/art117.jpeg" target="_blank"><img src="images/art117.jpeg" alt="" loading="lazy"></a>
-<a href="images/art118.jpeg" target="_blank"><img src="images/art118.jpeg" alt="" loading="lazy"></a>
-<a href="images/art119.jpeg" target="_blank"><img src="images/art119.jpeg" alt="" loading="lazy"></a>
-<a href="images/art120.jpeg" target="_blank"><img src="images/art120.jpeg" alt="" loading="lazy"></a>
-<a href="images/art121.jpeg" target="_blank"><img src="images/art121.jpeg" alt="" loading="lazy"></a>
-<a href="images/art122.jpeg" target="_blank"><img src="images/art122.jpeg" alt="" loading="lazy"></a>
-<a href="images/art123.jpeg" target="_blank"><img src="images/art123.jpeg" alt="" loading="lazy"></a>
-<a href="images/art124.jpeg" target="_blank"><img src="images/art124.jpeg" alt="" loading="lazy"></a>
-<a href="images/art125.jpeg" target="_blank"><img src="images/art125.jpeg" alt="" loading="lazy"></a>
-<a href="images/art126.jpeg" target="_blank"><img src="images/art126.jpeg" alt="" loading="lazy"></a>
-<a href="images/art127.jpeg" target="_blank"><img src="images/art127.jpeg" alt="" loading="lazy"></a>
-<a href="images/art128.jpeg" target="_blank"><img src="images/art128.jpeg" alt="" loading="lazy"></a>
-<a href="images/art129.jpeg" target="_blank"><img src="images/art129.jpeg" alt="" loading="lazy"></a>
-<a href="images/art130.jpeg" target="_blank"><img src="images/art130.jpeg" alt="" loading="lazy"></a>
-<a href="images/art130.png" target="_blank"><img src="images/art130.png" alt="" loading="lazy"></a>
+<a href="images/art001.png" class="gal"><img src="thumbs/art001.png" alt="" loading="lazy"></a>
+<a href="images/art002.png" class="gal"><img src="thumbs/art002.png" alt="" loading="lazy"></a>
+<a href="images/art003.png" class="gal"><img src="thumbs/art003.png" alt="" loading="lazy"></a>
+<a href="images/art004.png" class="gal"><img src="thumbs/art004.png" alt="" loading="lazy"></a>
+<a href="images/art005.png" class="gal"><img src="thumbs/art005.png" alt="" loading="lazy"></a>
+<a href="images/art006.png" class="gal"><img src="thumbs/art006.png" alt="" loading="lazy"></a>
+<a href="images/art007.png" class="gal"><img src="thumbs/art007.png" alt="" loading="lazy"></a>
+<a href="images/art008.png" class="gal"><img src="thumbs/art008.png" alt="" loading="lazy"></a>
+<a href="images/art009.png" class="gal"><img src="thumbs/art009.png" alt="" loading="lazy"></a>
+<a href="images/art010.png" class="gal"><img src="thumbs/art010.png" alt="" loading="lazy"></a>
+<a href="images/art011.png" class="gal"><img src="thumbs/art011.png" alt="" loading="lazy"></a>
+<a href="images/art012.png" class="gal"><img src="thumbs/art012.png" alt="" loading="lazy"></a>
+<a href="images/art013.png" class="gal"><img src="thumbs/art013.png" alt="" loading="lazy"></a>
+<a href="images/art014.png" class="gal"><img src="thumbs/art014.png" alt="" loading="lazy"></a>
+<a href="images/art015.png" class="gal"><img src="thumbs/art015.png" alt="" loading="lazy"></a>
+<a href="images/art016.png" class="gal"><img src="thumbs/art016.png" alt="" loading="lazy"></a>
+<a href="images/art017.png" class="gal"><img src="thumbs/art017.png" alt="" loading="lazy"></a>
+<a href="images/art018.png" class="gal"><img src="thumbs/art018.png" alt="" loading="lazy"></a>
+<a href="images/art019.png" class="gal"><img src="thumbs/art019.png" alt="" loading="lazy"></a>
+<a href="images/art020.png" class="gal"><img src="thumbs/art020.png" alt="" loading="lazy"></a>
+<a href="images/art021.png" class="gal"><img src="thumbs/art021.png" alt="" loading="lazy"></a>
+<a href="images/art022.png" class="gal"><img src="thumbs/art022.png" alt="" loading="lazy"></a>
+<a href="images/art023.png" class="gal"><img src="thumbs/art023.png" alt="" loading="lazy"></a>
+<a href="images/art024.png" class="gal"><img src="thumbs/art024.png" alt="" loading="lazy"></a>
+<a href="images/art025.png" class="gal"><img src="thumbs/art025.png" alt="" loading="lazy"></a>
+<a href="images/art026.png" class="gal"><img src="thumbs/art026.png" alt="" loading="lazy"></a>
+<a href="images/art027.png" class="gal"><img src="thumbs/art027.png" alt="" loading="lazy"></a>
+<a href="images/art028.png" class="gal"><img src="thumbs/art028.png" alt="" loading="lazy"></a>
+<a href="images/art029.png" class="gal"><img src="thumbs/art029.png" alt="" loading="lazy"></a>
+<a href="images/art030.png" class="gal"><img src="thumbs/art030.png" alt="" loading="lazy"></a>
+<a href="images/art031.png" class="gal"><img src="thumbs/art031.png" alt="" loading="lazy"></a>
+<a href="images/art032.png" class="gal"><img src="thumbs/art032.png" alt="" loading="lazy"></a>
+<a href="images/art033.png" class="gal"><img src="thumbs/art033.png" alt="" loading="lazy"></a>
+<a href="images/art034.png" class="gal"><img src="thumbs/art034.png" alt="" loading="lazy"></a>
+<a href="images/art035.png" class="gal"><img src="thumbs/art035.png" alt="" loading="lazy"></a>
+<a href="images/art036.png" class="gal"><img src="thumbs/art036.png" alt="" loading="lazy"></a>
+<a href="images/art037.png" class="gal"><img src="thumbs/art037.png" alt="" loading="lazy"></a>
+<a href="images/art038.png" class="gal"><img src="thumbs/art038.png" alt="" loading="lazy"></a>
+<a href="images/art039.png" class="gal"><img src="thumbs/art039.png" alt="" loading="lazy"></a>
+<a href="images/art040.png" class="gal"><img src="thumbs/art040.png" alt="" loading="lazy"></a>
+<a href="images/art041.png" class="gal"><img src="thumbs/art041.png" alt="" loading="lazy"></a>
+<a href="images/art042.png" class="gal"><img src="thumbs/art042.png" alt="" loading="lazy"></a>
+<a href="images/art043.png" class="gal"><img src="thumbs/art043.png" alt="" loading="lazy"></a>
+<a href="images/art044.png" class="gal"><img src="thumbs/art044.png" alt="" loading="lazy"></a>
+<a href="images/art045.png" class="gal"><img src="thumbs/art045.png" alt="" loading="lazy"></a>
+<a href="images/art046.png" class="gal"><img src="thumbs/art046.png" alt="" loading="lazy"></a>
+<a href="images/art047.png" class="gal"><img src="thumbs/art047.png" alt="" loading="lazy"></a>
+<a href="images/art048.jpeg" class="gal"><img src="thumbs/art048.jpeg" alt="" loading="lazy"></a>
+<a href="images/art049.jpeg" class="gal"><img src="thumbs/art049.jpeg" alt="" loading="lazy"></a>
+<a href="images/art050.jpeg" class="gal"><img src="thumbs/art050.jpeg" alt="" loading="lazy"></a>
+<a href="images/art051.jpeg" class="gal"><img src="thumbs/art051.jpeg" alt="" loading="lazy"></a>
+<a href="images/art052.jpeg" class="gal"><img src="thumbs/art052.jpeg" alt="" loading="lazy"></a>
+<a href="images/art053.jpeg" class="gal"><img src="thumbs/art053.jpeg" alt="" loading="lazy"></a>
+<a href="images/art054.jpeg" class="gal"><img src="thumbs/art054.jpeg" alt="" loading="lazy"></a>
+<a href="images/art055.jpeg" class="gal"><img src="thumbs/art055.jpeg" alt="" loading="lazy"></a>
+<a href="images/art056.jpeg" class="gal"><img src="thumbs/art056.jpeg" alt="" loading="lazy"></a>
+<a href="images/art057.jpeg" class="gal"><img src="thumbs/art057.jpeg" alt="" loading="lazy"></a>
+<a href="images/art058.jpeg" class="gal"><img src="thumbs/art058.jpeg" alt="" loading="lazy"></a>
+<a href="images/art059.jpeg" class="gal"><img src="thumbs/art059.jpeg" alt="" loading="lazy"></a>
+<a href="images/art060.jpeg" class="gal"><img src="thumbs/art060.jpeg" alt="" loading="lazy"></a>
+<a href="images/art061.jpeg" class="gal"><img src="thumbs/art061.jpeg" alt="" loading="lazy"></a>
+<a href="images/art062.jpeg" class="gal"><img src="thumbs/art062.jpeg" alt="" loading="lazy"></a>
+<a href="images/art063.jpeg" class="gal"><img src="thumbs/art063.jpeg" alt="" loading="lazy"></a>
+<a href="images/art064.jpeg" class="gal"><img src="thumbs/art064.jpeg" alt="" loading="lazy"></a>
+<a href="images/art065.jpeg" class="gal"><img src="thumbs/art065.jpeg" alt="" loading="lazy"></a>
+<a href="images/art066.jpeg" class="gal"><img src="thumbs/art066.jpeg" alt="" loading="lazy"></a>
+<a href="images/art067.jpeg" class="gal"><img src="thumbs/art067.jpeg" alt="" loading="lazy"></a>
+<a href="images/art068.jpeg" class="gal"><img src="thumbs/art068.jpeg" alt="" loading="lazy"></a>
+<a href="images/art069.jpeg" class="gal"><img src="thumbs/art069.jpeg" alt="" loading="lazy"></a>
+<a href="images/art070.jpeg" class="gal"><img src="thumbs/art070.jpeg" alt="" loading="lazy"></a>
+<a href="images/art071.jpeg" class="gal"><img src="thumbs/art071.jpeg" alt="" loading="lazy"></a>
+<a href="images/art072.jpeg" class="gal"><img src="thumbs/art072.jpeg" alt="" loading="lazy"></a>
+<a href="images/art073.jpeg" class="gal"><img src="thumbs/art073.jpeg" alt="" loading="lazy"></a>
+<a href="images/art074.jpeg" class="gal"><img src="thumbs/art074.jpeg" alt="" loading="lazy"></a>
+<a href="images/art075.jpeg" class="gal"><img src="thumbs/art075.jpeg" alt="" loading="lazy"></a>
+<a href="images/art076.jpeg" class="gal"><img src="thumbs/art076.jpeg" alt="" loading="lazy"></a>
+<a href="images/art077.jpeg" class="gal"><img src="thumbs/art077.jpeg" alt="" loading="lazy"></a>
+<a href="images/art078.jpeg" class="gal"><img src="thumbs/art078.jpeg" alt="" loading="lazy"></a>
+<a href="images/art079.jpeg" class="gal"><img src="thumbs/art079.jpeg" alt="" loading="lazy"></a>
+<a href="images/art080.jpeg" class="gal"><img src="thumbs/art080.jpeg" alt="" loading="lazy"></a>
+<a href="images/art081.jpeg" class="gal"><img src="thumbs/art081.jpeg" alt="" loading="lazy"></a>
+<a href="images/art082.jpeg" class="gal"><img src="thumbs/art082.jpeg" alt="" loading="lazy"></a>
+<a href="images/art083.jpeg" class="gal"><img src="thumbs/art083.jpeg" alt="" loading="lazy"></a>
+<a href="images/art084.jpeg" class="gal"><img src="thumbs/art084.jpeg" alt="" loading="lazy"></a>
+<a href="images/art085.jpeg" class="gal"><img src="thumbs/art085.jpeg" alt="" loading="lazy"></a>
+<a href="images/art086.jpeg" class="gal"><img src="thumbs/art086.jpeg" alt="" loading="lazy"></a>
+<a href="images/art087.jpeg" class="gal"><img src="thumbs/art087.jpeg" alt="" loading="lazy"></a>
+<a href="images/art088.jpeg" class="gal"><img src="thumbs/art088.jpeg" alt="" loading="lazy"></a>
+<a href="images/art089.jpeg" class="gal"><img src="thumbs/art089.jpeg" alt="" loading="lazy"></a>
+<a href="images/art090.jpeg" class="gal"><img src="thumbs/art090.jpeg" alt="" loading="lazy"></a>
+<a href="images/art091.jpeg" class="gal"><img src="thumbs/art091.jpeg" alt="" loading="lazy"></a>
+<a href="images/art092.jpeg" class="gal"><img src="thumbs/art092.jpeg" alt="" loading="lazy"></a>
+<a href="images/art093.jpeg" class="gal"><img src="thumbs/art093.jpeg" alt="" loading="lazy"></a>
+<a href="images/art094.jpeg" class="gal"><img src="thumbs/art094.jpeg" alt="" loading="lazy"></a>
+<a href="images/art095.jpeg" class="gal"><img src="thumbs/art095.jpeg" alt="" loading="lazy"></a>
+<a href="images/art096.jpeg" class="gal"><img src="thumbs/art096.jpeg" alt="" loading="lazy"></a>
+<a href="images/art097.jpeg" class="gal"><img src="thumbs/art097.jpeg" alt="" loading="lazy"></a>
+<a href="images/art098.jpeg" class="gal"><img src="thumbs/art098.jpeg" alt="" loading="lazy"></a>
+<a href="images/art099.jpeg" class="gal"><img src="thumbs/art099.jpeg" alt="" loading="lazy"></a>
+<a href="images/art100.jpeg" class="gal"><img src="thumbs/art100.jpeg" alt="" loading="lazy"></a>
+<a href="images/art101.jpeg" class="gal"><img src="thumbs/art101.jpeg" alt="" loading="lazy"></a>
+<a href="images/art102.jpeg" class="gal"><img src="thumbs/art102.jpeg" alt="" loading="lazy"></a>
+<a href="images/art103.jpeg" class="gal"><img src="thumbs/art103.jpeg" alt="" loading="lazy"></a>
+<a href="images/art104.jpeg" class="gal"><img src="thumbs/art104.jpeg" alt="" loading="lazy"></a>
+<a href="images/art105.jpeg" class="gal"><img src="thumbs/art105.jpeg" alt="" loading="lazy"></a>
+<a href="images/art106.jpeg" class="gal"><img src="thumbs/art106.jpeg" alt="" loading="lazy"></a>
+<a href="images/art107.jpeg" class="gal"><img src="thumbs/art107.jpeg" alt="" loading="lazy"></a>
+<a href="images/art108.jpeg" class="gal"><img src="thumbs/art108.jpeg" alt="" loading="lazy"></a>
+<a href="images/art109.jpeg" class="gal"><img src="thumbs/art109.jpeg" alt="" loading="lazy"></a>
+<a href="images/art110.jpeg" class="gal"><img src="thumbs/art110.jpeg" alt="" loading="lazy"></a>
+<a href="images/art111.jpeg" class="gal"><img src="thumbs/art111.jpeg" alt="" loading="lazy"></a>
+<a href="images/art112.jpeg" class="gal"><img src="thumbs/art112.jpeg" alt="" loading="lazy"></a>
+<a href="images/art113.jpeg" class="gal"><img src="thumbs/art113.jpeg" alt="" loading="lazy"></a>
+<a href="images/art114.jpeg" class="gal"><img src="thumbs/art114.jpeg" alt="" loading="lazy"></a>
+<a href="images/art115.jpeg" class="gal"><img src="thumbs/art115.jpeg" alt="" loading="lazy"></a>
+<a href="images/art116.jpeg" class="gal"><img src="thumbs/art116.jpeg" alt="" loading="lazy"></a>
+<a href="images/art117.jpeg" class="gal"><img src="thumbs/art117.jpeg" alt="" loading="lazy"></a>
+<a href="images/art118.jpeg" class="gal"><img src="thumbs/art118.jpeg" alt="" loading="lazy"></a>
+<a href="images/art119.jpeg" class="gal"><img src="thumbs/art119.jpeg" alt="" loading="lazy"></a>
+<a href="images/art120.jpeg" class="gal"><img src="thumbs/art120.jpeg" alt="" loading="lazy"></a>
+<a href="images/art121.jpeg" class="gal"><img src="thumbs/art121.jpeg" alt="" loading="lazy"></a>
+<a href="images/art122.jpeg" class="gal"><img src="thumbs/art122.jpeg" alt="" loading="lazy"></a>
+<a href="images/art123.jpeg" class="gal"><img src="thumbs/art123.jpeg" alt="" loading="lazy"></a>
+<a href="images/art124.jpeg" class="gal"><img src="thumbs/art124.jpeg" alt="" loading="lazy"></a>
+<a href="images/art125.jpeg" class="gal"><img src="thumbs/art125.jpeg" alt="" loading="lazy"></a>
+<a href="images/art126.jpeg" class="gal"><img src="thumbs/art126.jpeg" alt="" loading="lazy"></a>
+<a href="images/art127.jpeg" class="gal"><img src="thumbs/art127.jpeg" alt="" loading="lazy"></a>
+<a href="images/art128.jpeg" class="gal"><img src="thumbs/art128.jpeg" alt="" loading="lazy"></a>
+<a href="images/art129.jpeg" class="gal"><img src="thumbs/art129.jpeg" alt="" loading="lazy"></a>
+<a href="images/art130.jpeg" class="gal"><img src="thumbs/art130.jpeg" alt="" loading="lazy"></a>
+<a href="images/art130.png" class="gal"><img src="thumbs/art130.png" alt="" loading="lazy"></a>
   </div>
-<footer>
+  <footer>
     <p>&copy; 2026 Canyon Bezoar. All rights reserved.</p>
   </footer>
+
+  <div id="lightbox">
+    <span id="close">&times;</span>
+    <span class="nav" id="prev">&#10094;</span>
+    <img src="" alt="Full size artwork">
+    <span class="nav" id="next">&#10095;</span>
+  </div>
+
+<script>
+  const links = Array.from(document.querySelectorAll('.gallery a.gal'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  let current = 0;
+
+  function show(i) {
+    current = (i + links.length) % links.length;
+    lightboxImg.src = links[current].href;
+    lightbox.classList.add('active');
+  }
+  function hide() { lightbox.classList.remove('active'); lightboxImg.src = ''; }
+
+  links.forEach((link, i) => link.addEventListener('click', e => {
+    e.preventDefault();
+    show(i);
+  }));
+
+  document.getElementById('prev').addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
+  document.getElementById('next').addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
+  document.getElementById('close').addEventListener('click', hide);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) hide(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'ArrowRight') show(current + 1);
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'Escape') hide();
+  });
+</script>
 </body>
 </html>
